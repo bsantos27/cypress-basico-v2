@@ -4,7 +4,7 @@
 // If you're unfamiliar with how Cypress works,
 // check out the link below and learn how to write your first test:
 // https://on.cypress.io/writing-first-test
-/// <reference types="Cypress" />
+//// <reference types="Cypress" />
 
 describe('Central de Atendimento ao Cliente TAT', function () {
     beforeEach(function () {
@@ -95,6 +95,24 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
         cy.get('.success').should('be.visible');
 
+    })
+
+    it('selecionando um produto pelo seu texto', function(){
+        cy.get('#product')
+            .select('YouTube')
+            .should('have.value', 'youtube');
+    })
+
+    it('selecionando um produto pelo seu valor', function(){
+        cy.get('#product')
+            .select('mentoria')
+            .should('have.value', 'mentoria');
+    })
+
+    it('selecionando um produto pelo seu indice', function(){
+        cy.get('#product')
+            .select(1)
+            .should('have.value', 'blog');
     })
 
 })
