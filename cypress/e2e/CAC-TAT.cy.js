@@ -91,77 +91,91 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
     it('Enviar o formulario com sucesso usando o comando customizado', function () {
 
-        cy.fillMandatoryFieldsAndSubmit('Bruno', 'Santos', 'bcs.2707@gmail.com','71991573226', 'testando o text');
+        cy.fillMandatoryFieldsAndSubmit('Bruno', 'Santos', 'bcs.2707@gmail.com', '71991573226', 'testando o text');
 
         cy.get('.success').should('be.visible');
 
     })
 
-    it('selecionando um produto pelo seu texto', function(){
+    it('selecionando um produto pelo seu texto', function () {
         cy.get('#product')
             .select('YouTube')
             .should('have.value', 'youtube');
     })
 
-    it('selecionando um produto pelo seu valor', function(){
+    it('selecionando um produto pelo seu valor', function () {
         cy.get('#product')
             .select('mentoria')
             .should('have.value', 'mentoria');
     })
 
-    it('selecionando um produto pelo seu indice', function(){
+    it('selecionando um produto pelo seu indice', function () {
         cy.get('#product')
             .select(1)
             .should('have.value', 'blog');
     })
 
-    it('marca o tipo de atendimento "Feedback"', function(){
+    it('marca o tipo de atendimento "Feedback"', function () {
         cy.get('input[type="radio"][value="feedback"]')
             .check()
             .should('have.value', 'feedback');
     })
 
-    it('marca cada tipo de atendimento', function(){
+    it('marca cada tipo de atendimento', function () {
         cy.get('input[type="radio"]')
             .should('have.length', 3)
-            .each(function($radio){
+            .each(function ($radio) {
                 cy.wrap($radio).check()
                 cy.wrap($radio).should('be.checked')
             });
     })
 
-    it('marca ambos checkbox, depois desmarca o ultimo', function(){
+    it('marca ambos checkbox, depois desmarca o ultimo', function () {
         cy.get('input[type="checkbox"]')
             .check()
             .last()
             .uncheck()
     })
 
-    it('Selecionar um arquivo da pasta fixture', function(){
+    it('Selecionar um arquivo da pasta fixture', function () {
         cy.get('input[type="file"]')
-        .should('not.have.value')
-        .selectFile('./cypress/fixtures/example.json')
-        .should(function($input){
-            expect($input[0].files[0].name).to.equal('example.json');
-        });            
-    })
-
-    it('Seleciona um arquivo simulnado un drag-drop', function(){
-        cy.get('input[type="file"]')
-        .should('not.have.value')
-        .selectFile('./cypress/fixtures/example.json', {action: 'drag-drop'})
-        .should(function($input){
-            expect($input[0].files[0].name).to.equal('example.json');
-        });
-    })
-
-    it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function(){
-        cy.fixture('example.json').as('sampleFile')
-        cy.get('input[type="file"]')
-            .selectFile('@sampleFile')
-            .should(function($input){
+            .should('not.have.value')
+            .selectFile('./cypress/fixtures/example.json')
+            .should(function ($input) {
                 expect($input[0].files[0].name).to.equal('example.json');
             });
     })
+
+    it('Seleciona um arquivo simulnado un drag-drop', function () {
+        cy.get('input[type="file"]')
+            .should('not.have.value')
+            .selectFile('./cypress/fixtures/example.json', { action: 'drag-drop' })
+            .should(function ($input) {
+                expect($input[0].files[0].name).to.equal('example.json');
+            });
+    })
+
+    it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function () {
+        cy.fixture('example.json').as('sampleFile')
+        cy.get('input[type="file"]')
+            .selectFile('@sampleFile')
+            .should(function ($input) {
+                expect($input[0].files[0].name).to.equal('example.json');
+            });
+    })
+
+    it('verifica se a politica de privacidade abre em outra aba', function () {
+        cy.get('#privacy a').should('have.attr', 'target', '_blank')
+    })
+
+    it.only('acessa a pagina de politica de privacidade removendo o target e entao abre em outra pagina', function () {
+        cy.get('#privacy a')
+            .invoke('removeAttr', 'target')
+            .click()
+        
+        cy.contains('Talking About Testing').should('be.visible')
+    })
+
+    
 
 })

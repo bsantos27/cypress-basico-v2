@@ -12,6 +12,6 @@
 - Como executar os testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
 - Como criar uma documentação mínima para seu projeto de testes automatizados
 
-- Projeto feito com cypress 9.5.1
+- Projeto começou com a versao cypress 9.5.1 e depois atualizou para a versão 23.
 
 
