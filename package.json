@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Repositório da versão 2 do curso básico de Cypress da Escola Talking About Testing",
   "main": "src/index.html",
-  "scripts": {
+  "scripts": {    
   "cy:open": "cypress open",
-  "test": "cypress run"
+  "cy:open:mobile": "cypress open --config viewporWidth=410 viewporHeight=860",
+  "test": "cypress run",
+  "test:mobile": "cypress run --config viewporWidth=410 viewporHeight=860"
 },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wlsf82/cypress-basico-v2.git"
+    "url": "https://github.com/bsantos27"
   },
   "keywords": [
     "Testing",
@@ -18,9 +20,9 @@
     "Cypress Básico",
     "Escola TAT"
   ],
-  "author": "Walmyr Filho <wlsf82@gmail.com> (https://walmyr.dev/)",
+  "author": "Bruno Santos <bcs.2707@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/wlsf82/cypress-basico-v2#readme",
+  "homepage": "https://github.com/bsantos27/cypress-basico-v2/tree/main/cypress",
   "devDependencies": {
     "buil": "^0.0.0",
     "cypress": "^9.5.1"
