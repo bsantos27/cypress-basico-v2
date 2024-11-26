@@ -24,18 +24,16 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-supportFile: 'cypress/support/index.js', // Ajuste se estiver utilizando comandos personalizados
 
 Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function (nome, sobreNome, email, numero, text) {
-    //const longText = 'Assim, determinar a qualidade de um produto e/ou serviço envolve a realização de uma série de testes para verificar sua qualidade e seu desempenho no mercado, desde o processo inicial, como o planejamento, até sua finalização, como a entrega do produto e/ou serviço.'
-    cy.get('#firstName').type(nome);
-    cy.get('#lastName').type(sobreNome);
-    cy.get('#email').type(email);
-    cy.get('#phone').type(numero);
-    cy.get('#open-text-area').type(text);
-
-    cy.get('#phone-checkbox').click();
-
-    cy.contains('button', 'Enviar').click();
-    
-})
+    cy.get('#firstName').should('be.visible').type(nome);
+    cy.get('#lastName').should('be.visible').type(sobreNome);
+    cy.get('#email').should('be.visible').type(email);
+    cy.get('#phone').should('be.visible').type(numero);
+    cy.get('#open-text-area').should('be.visible').type(text);
+  
+    cy.get('#phone-checkbox').should('be.visible').click();
+  
+    cy.contains('button', 'Enviar').should('be.visible').click();
+  });
+  
