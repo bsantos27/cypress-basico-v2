@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+supportFile: 'cypress/support/index.js', // Ajuste se estiver utilizando comandos personalizados
+
 Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function (nome, sobreNome, email, numero, text) {
     //const longText = 'Assim, determinar a qualidade de um produto e/ou serviço envolve a realização de uma série de testes para verificar sua qualidade e seu desempenho no mercado, desde o processo inicial, como o planejamento, até sua finalização, como a entrega do produto e/ou serviço.'
     cy.get('#firstName').type(nome);
