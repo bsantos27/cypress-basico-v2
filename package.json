@@ -6,7 +6,7 @@
   "scripts": {
     "cypress:open": "cypress open --config-file=cypress.config.js",
     "cypress:run": "cypress run --config-file cypress.config.js",
-    "cy:open:mobile": "cypress open --config viewporWidth=410 viewporHeight=860",
+    "cypress:open:mobile": "cypress open --config viewporWidth=410 viewporHeight=860",
     "test": "cypress run",
     "test:mobile": "cypress run --config viewporWidth=410 viewporHeight=860"
   },
