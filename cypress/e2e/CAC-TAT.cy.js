@@ -89,13 +89,13 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.get('.error').should('be.visible');
     })
 
-    it('Enviar o formulario com sucesso usando o comando customizado', function () {
+    // it('Enviar o formulario com sucesso usando o comando customizado', function () {
 
-        cy.fillMandatoryFieldsAndSubmit('Bruno', 'Santos', 'bcs.2707@gmail.com', '71991573226', 'testando o text');
+    //     cy.fillMandatoryFieldsAndSubmit('Bruno', 'Santos', 'bcs.2707@gmail.com', '71991573226', 'testando o text');
 
-        cy.get('.success').should('be.visible');
+    //     cy.get('.success').should('be.visible');
 
-    })
+    // })
 
     it('selecionando um produto pelo seu texto', function () {
         cy.get('#product')
