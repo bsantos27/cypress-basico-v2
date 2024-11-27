@@ -238,5 +238,11 @@ describe('Central de Atendimento ao Cliente TAT', function () {
             })
     })
 
+    it.only('encontrar o cat', function(){
+        cy.get('#cat')            
+            .invoke('show')
+            .should('be.visible')  
+    })
+
 
 })
